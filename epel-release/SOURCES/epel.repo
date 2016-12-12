@@ -1,0 +1,8 @@
+[el7-epel]
+name=EPEL 7
+failovermethod=priority
+mirrorlist=http://ftp.redsleeve.org/pub/el7/EPEL-full/mirrors
+enabled=1
+metadata_expire=0s
+gpgcheck=0
+#gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-epel
