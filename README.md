@@ -4,7 +4,7 @@ This repository contains the sources for rpms which RedSleeve adds on top of the
 Some rpms are just rebuilds of items found elsewhere on the web. They are documented below.
 
 | package | source | reason
-| --- | ---
+| --- | --- | ---
 | dtc | ??? | ???
 | python-lesscpy | EPEL | | needed for building ipa |
 | ttembed | EPEL | needed for building fontawesome-fonts and open-sans-fonts
