@@ -15,9 +15,6 @@ if [[ -e /sys/firmware/devicetree/base/compatible ]]; then
     ln -sf brcmfmac4329-sdio-cubox-i.txt /lib/firmware/brcm/brcmfmac4329-sdio.txt
     ln -sf brcmfmac4330-sdio-cubox-i.txt /lib/firmware/brcm/brcmfmac4330-sdio.txt
     ;;
-  *raspberrypi,3-model-b*)
-    ln -sf brcmfmac43430-sdio-raspberrypi3b.txt /lib/firmware/brcm/brcmfmac43430-sdio.txt
-    ;;
   *tronsmart,vega-s95-telos*)
     ln -sf brcmfmac4339-sdio-vega-s95-telos.txt /lib/firmware/brcm/brcmfmac4339-sdio.txt
     ;;

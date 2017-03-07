@@ -45,7 +45,7 @@ Source4309:     http://phelum.net/temp/BCM43430A1.hcd
 # Owns /lib/firmware/brcm and potentially conflicts
 BuildRequires:  kernel-firmware
 # Owns /etc/modprobe.d
-BuildRequires:  suse-module-tools
+BuildRequires:  kmod
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildArch:      noarch
 
@@ -73,7 +73,7 @@ install -c -m 0644 %{SOURCE391} %{buildroot}/lib/firmware/brcm/
 install -c -m 0644 %{SOURCE3621} %{buildroot}/lib/firmware/brcm/
 install -c -m 0644 %{SOURCE3622} %{buildroot}/lib/firmware/brcm/
 install -c -m 0644 %{SOURCE3623} %{buildroot}/lib/firmware/brcm/
-install -c -m 0644 %{SOURCE4301} %{buildroot}/lib/firmware/brcm/
+install -c -m 0644 %{SOURCE4301} %{buildroot}/lib/firmware/brcm/brcmfmac43430-sdio.txt
 # Used by bluez (hciattach)
 install -c -m 0644 %{SOURCE4309} %{buildroot}/lib/firmware/
 
@@ -86,11 +86,14 @@ install -c -m 0644 %{SOURCE4309} %{buildroot}/lib/firmware/
 %ghost /lib/firmware/brcm/brcmfmac4330-sdio.txt
 %ghost /lib/firmware/brcm/brcmfmac4339-sdio.txt
 %ghost /lib/firmware/brcm/brcmfmac43362-sdio.txt
-%ghost /lib/firmware/brcm/brcmfmac43430-sdio.txt
 %{_sysconfdir}/modprobe.d/50-brcmfmac.conf
 %{_sbindir}/install-brcmfmac
 
 %changelog
+* Tue Mar 07 2017 Jacco Ligthart <jacco@redsleeve.org>
+- removed the symlinking for raspberrypi.
+- changed buildrequirements to RSEL packages
+
 * Sun Jan 15 2017 afaerber@suse.de
 - Add brcmfmac4339-sdio-vega-s95-telos.txt
 * Sun Jan  8 2017 afaerber@suse.de
