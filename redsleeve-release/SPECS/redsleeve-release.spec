@@ -6,14 +6,14 @@
 %define base_release_version 7
 %define full_release_version 7
 %define dist_release_version 7
-%define upstream_rel 7.3
-%define redsleeve_rel 3.1611
+%define upstream_rel 7.4
+%define redsleeve_rel 4.1708
 #define beta Beta
 %define dist .el%{dist_release_version}
 
 Name:           redsleeve-release
 Version:        %{base_release_version}
-Release:        %{redsleeve_rel}%{?dist}.3
+Release:        %{redsleeve_rel}%{?dist}.4
 Summary:        %{product_family} release file
 Group:          System Environment/Base
 License:        GPLv2
@@ -141,6 +141,9 @@ rm -rf %{buildroot}
 %{_prefix}/lib/systemd/system-preset/*
 
 %changelog
+* Thu Aug 03 2017 Jacco Ligthart <jacco@redsleeve.org>
+- updated to 7.4
+
 * Mon Dec 12 2016 Jacco Ligthart <jacco@redsleeve.org>
 - updated to 7.3
 
