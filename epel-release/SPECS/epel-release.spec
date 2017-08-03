@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        20150510
+Release:        20170529
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -55,6 +55,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon May 29 2017 <jacco@redsleeve.org> - 7-20150510
+- updated the path to the mirrors in the repofile
+- added gpg checking to the repofile
+
 * Sun May 10 2015 <jacco@redsleeve.org> - 7-20150510
 - adjusted for el7
 
