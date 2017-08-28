@@ -6,7 +6,7 @@
 Summary:   Xorg X11 fbturbo driver
 Name:      xorg-x11-drv-fbturbo
 Version:   0.5.1
-Release:   0.3%{?gitrev}%{?dist}
+Release:   0.4%{?gitrev}%{?dist}
 URL:       https://github.com/ssvb/xf86-video-fbturbo
 License:   MIT and GPLv2
 Group:     User Interface/X Hardware Support
@@ -67,6 +67,9 @@ find %{buildroot} -type f -name "*.la" -delete
 %{_mandir}/man4/fbturbo.4*
 
 %changelog
+* Mon Aug 28 2017 Jacco Ligthart <jacco@redsleeve.org> 0.5.1-0.4
+- rebuild for new xorg ABI
+
 * Fri Dec 18 2015 Jacco Ligthart <jacco@redsleeve.org> 0.5.1-0.3
 - rebuild for new xorg ABI
 
