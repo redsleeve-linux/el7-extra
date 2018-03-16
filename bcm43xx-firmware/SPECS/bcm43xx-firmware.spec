@@ -1,7 +1,7 @@
 #
 # spec file for package bcm43xx-firmware
 #
-# Copyright (c) 2017 SUSE LINUX GmbH, Nuernberg, Germany.
+# Copyright (c) 2018 SUSE LINUX GmbH, Nuernberg, Germany.
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -17,7 +17,7 @@
 
 
 Name:           bcm43xx-firmware
-Version:        20160301
+Version:        20180314
 Release:        5.1
 Summary:        Firmware for the Broadcom/Cypress BCM43xx chipset family
 License:        SUSE-Firmware
@@ -40,8 +40,10 @@ Source3621:     http://dl.cubieboard.org/public/Cubieboard/benn/firmware/ap6210/
 Source3622:     https://github.com/Bananian/bananian/raw/master/deb/u-boot-m2-bananian_armhf/lib/firmware/brcm/brcmfmac43362-sdio.txt#/brcmfmac43362-sdio-bananapi-m2.txt
 Source3623:     https://github.com/Bananian/bananian/raw/master/deb/u-boot-pro-bananian_armhf/lib/firmware/brcm/brcmfmac43362-sdio.txt#/brcmfmac43362-sdio-bananapi-m1+.txt
 #BCM43430
-Source4301:     https://github.com/RPi-Distro/firmware-nonfree/raw/master/brcm80211/brcm/brcmfmac43430-sdio.txt#/brcmfmac43430-sdio-raspberrypi3b.txt
+Source4301:     https://github.com/RPi-Distro/firmware-nonfree/raw/master/brcm/brcmfmac43430-sdio.txt#/brcmfmac43430-sdio-raspberrypi3b.txt
 Source4309:     http://phelum.net/temp/BCM43430A1.hcd
+#BCM43455
+Source4551:     https://github.com/RPi-Distro/firmware-nonfree/raw/master/brcm/brcmfmac43455-sdio.txt#/brcmfmac43455-sdio-raspberrypi3b.txt
 # Owns /lib/firmware/brcm and potentially conflicts
 BuildRequires:  kernel-firmware
 # Owns /etc/modprobe.d
@@ -52,7 +54,8 @@ BuildArch:      noarch
 %description
 This package provides the firmware files needed for the
 Broadcom (now Cypress) BCM43430 Wifi+Bluetooth chipset
-as well as NVRAM config files for BCM43362 and BCM43430.
+as well as NVRAM config files for BCM43362, BCM43430 and
+further related chipsets.
 
 %prep
 %setup -q -c -T
@@ -74,6 +77,7 @@ install -c -m 0644 %{SOURCE3621} %{buildroot}/lib/firmware/brcm/
 install -c -m 0644 %{SOURCE3622} %{buildroot}/lib/firmware/brcm/
 install -c -m 0644 %{SOURCE3623} %{buildroot}/lib/firmware/brcm/
 install -c -m 0644 %{SOURCE4301} %{buildroot}/lib/firmware/brcm/brcmfmac43430-sdio.txt
+install -c -m 0644 %{SOURCE4551} %{buildroot}/lib/firmware/brcm/brcmfmac43455-sdio.txt
 # Used by bluez (hciattach)
 install -c -m 0644 %{SOURCE4309} %{buildroot}/lib/firmware/
 
@@ -90,10 +94,22 @@ install -c -m 0644 %{SOURCE4309} %{buildroot}/lib/firmware/
 %{_sbindir}/install-brcmfmac
 
 %changelog
-* Tue Mar 07 2017 Jacco Ligthart <jacco@redsleeve.org>
+* Fri Mar 16 2018 Jacco Ligthart <jacco@redsleeve.org>
 - removed the symlinking for raspberrypi.
 - changed buildrequirements to RSEL packages
 
+* Wed Mar 14 2018 agraf@suse.com
+- Add support for RPi 3 B+ (bcm43455, bsc#1085262)
+* Mon Jun 12 2017 afaerber@suse.de
+- Add Supplements for Raspberry Pi 3 (bsc#1041823)
+- Resolve NUL char warning on modprobe for Tumbleweed by properly
+  iterating over zero-separated DT compatible strings
+* Mon Apr 10 2017 afaerber@suse.de
+- Require kernel-firmware, suggested by fvogt. (bsc#1033137)
+  Don't require version 20161005 or later, to remain compatible
+  with older distributions.
+- Bump version to today's date. This will allow other packages
+  such as kernel-firmware to conflict against our older version.
 * Sun Jan 15 2017 afaerber@suse.de
 - Add brcmfmac4339-sdio-vega-s95-telos.txt
 * Sun Jan  8 2017 afaerber@suse.de
