@@ -6,21 +6,22 @@
 %define base_release_version 7
 %define full_release_version 7
 %define dist_release_version 7
-%define upstream_rel 7.4
-%define redsleeve_rel 4.1708
+%define upstream_rel_long 7.5-8
+%define upstream_rel 7.5
+%define redsleeve_rel 5.1804
 #define beta Beta
 %define dist .el%{dist_release_version}
 
 Name:           redsleeve-release
 Version:        %{base_release_version}
-Release:        %{redsleeve_rel}%{?dist}.4
+Release:        %{redsleeve_rel}%{?dist}.1
 Summary:        %{product_family} release file
 Group:          System Environment/Base
 License:        GPLv2
 Provides:       redsleeve-release = %{version}-%{release}
 Provides:       redsleeve-release(upstream) = %{upstream_rel}
-Provides:       redhat-release = %{upstream_rel}
-Provides:       system-release = %{upstream_rel}
+Provides:       redhat-release = %{upstream_rel_long}
+Provides:       system-release = %{upstream_rel_long}
 Provides:       system-release(releasever) = %{base_release_version}
 Source0:        redsleeve-release-%{base_release_version}-%{redsleeve_rel}.tar.gz
 Source1:        85-display-manager.preset
@@ -141,6 +142,9 @@ rm -rf %{buildroot}
 %{_prefix}/lib/systemd/system-preset/*
 
 %changelog
+* Sat Apr 14 2018 Jacco Ligthart <jacco@redsleeve.org>
+- updated to 7.5
+
 * Thu Aug 03 2017 Jacco Ligthart <jacco@redsleeve.org>
 - updated to 7.4
 
