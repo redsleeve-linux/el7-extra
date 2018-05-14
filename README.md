@@ -13,6 +13,7 @@ Some rpms are just rebuilds of items found elsewhere on the web. They are docume
 | python-lesscpy | CentOS BuildSystem | needed for building `ipa`
 | python-mock | CentOS BuildSystem | needed for building `python-requests-oauthlib`
 | python-pretend | CentOS BuildSystem | needed for building `python-cryptography`
+| userspace-rcu | CentOS BuildSystem | needed for building `glusterfs`
 | ttembed | EPEL | needed for building `fontawesome-fonts` and `open-sans-fonts`
 | vboot-utils | ??? | build by Gordan
 | zfs-fuse | ??? | build by Gordan
