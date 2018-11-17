@@ -6,9 +6,9 @@
 %define base_release_version 7
 %define full_release_version 7
 %define dist_release_version 7
-%define upstream_rel_long 7.5-8
-%define upstream_rel 7.5
-%define redsleeve_rel 5.1804
+%define upstream_rel_long 7.6-4
+%define upstream_rel 7.6
+%define redsleeve_rel 6.1810
 #define beta Beta
 %define dist .el%{dist_release_version}
 
@@ -142,6 +142,9 @@ rm -rf %{buildroot}
 %{_prefix}/lib/systemd/system-preset/*
 
 %changelog
+* Fri Nov 16 2018 Jacco Ligthart <jacco@redsleeve.org>
+- updated to 7.6
+
 * Sat Apr 14 2018 Jacco Ligthart <jacco@redsleeve.org>
 - updated to 7.5
 
