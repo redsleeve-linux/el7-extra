@@ -1,6 +1,6 @@
 Name:           epel-release
 Version:        7
-Release:        20170529
+Release:        20190514
 Summary:        Extra Packages for Enterprise Linux repository configuration
 
 Group:          System Environment/Base
@@ -13,6 +13,7 @@ URL:            http://ftp.redsleeve.org/pub/el7/EPEL-full/
 #Source0:        http://ftp.redsleeve.org/pub/el6/packages/epel/RPM-GPG-KEY-epel
 Source0:        GPL
 Source1:        epel.repo
+Source2:        RPM-GPG-KEY-epel-7-testing
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -43,6 +44,8 @@ rm -rf $RPM_BUILD_ROOT
 install -dm 755 $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
 install -pm 644 %{SOURCE1} \
     $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
+install -Dpm 644 %{SOURCE2} \
+    $RPM_BUILD_ROOT%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-epel-7-testing
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -51,11 +54,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc GPL
 %config(noreplace) /etc/yum.repos.d/*
-#/etc/pki/rpm-gpg/*
+/etc/pki/rpm-gpg/*
 
 
 %changelog
-* Mon May 29 2017 <jacco@redsleeve.org> - 7-20150510
+* Tue May 14 2019 <jacco@redsleeve.org> - 7-20190514
+- Added the epel7 update repo including key
+
+* Mon May 29 2017 <jacco@redsleeve.org> - 7-20170529
 - updated the path to the mirrors in the repofile
 - added gpg checking to the repofile
 
