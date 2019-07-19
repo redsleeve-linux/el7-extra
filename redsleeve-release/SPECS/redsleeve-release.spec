@@ -14,7 +14,7 @@
 
 Name:           redsleeve-release
 Version:        %{base_release_version}
-Release:        %{redsleeve_rel}%{?dist}.1
+Release:        %{redsleeve_rel}%{?dist}.2
 Summary:        %{product_family} release file
 Group:          System Environment/Base
 License:        GPLv2
@@ -142,6 +142,9 @@ rm -rf %{buildroot}
 %{_prefix}/lib/systemd/system-preset/*
 
 %changelog
+* Fri Jul 19 2019 Jacco Ligthart <jacco@redsleeve.org>
+- updated 90-default.preset to latest from CentOS
+
 * Fri Nov 16 2018 Jacco Ligthart <jacco@redsleeve.org>
 - updated to 7.6
 
