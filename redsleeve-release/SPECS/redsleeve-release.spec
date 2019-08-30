@@ -6,15 +6,15 @@
 %define base_release_version 7
 %define full_release_version 7
 %define dist_release_version 7
-%define upstream_rel_long 7.6-4
-%define upstream_rel 7.6
-%define redsleeve_rel 6.1810
+%define upstream_rel_long 7.7-1
+%define upstream_rel 7.7
+%define redsleeve_rel 7.1905
 #define beta Beta
 %define dist .el%{dist_release_version}
 
 Name:           redsleeve-release
 Version:        %{base_release_version}
-Release:        %{redsleeve_rel}%{?dist}.2
+Release:        %{redsleeve_rel}%{?dist}.1
 Summary:        %{product_family} release file
 Group:          System Environment/Base
 License:        GPLv2
@@ -142,6 +142,9 @@ rm -rf %{buildroot}
 %{_prefix}/lib/systemd/system-preset/*
 
 %changelog
+* Fri Aug 30 2019 Jacco Ligthart <jacco@redsleeve.org>
+- updated to 7.7
+
 * Fri Jul 19 2019 Jacco Ligthart <jacco@redsleeve.org>
 - updated 90-default.preset to latest from CentOS
 
